@@ -1,4 +1,4 @@
-# backend-doc
+# django
 
 ## django manage command
     django-admin help - used to display usage information and a list of the commands provided by each application.
