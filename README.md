@@ -30,3 +30,7 @@ Some of the caching strategies in Django are listed below:
 |Local-memory Caching |	This is used as the default cache strategy by Django if you haven’t set anything. It is per-process as well as thread-safe.|
 |Database Caching | 	Cache data will be stored in the database and works very well if you have a fast and well-indexed DB server.|
 
+
+
+file-based sessions -> set SESSION_ENGINE settings to "django.contrib.sessions.backends.file"
+
