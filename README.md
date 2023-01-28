@@ -1,8 +1,16 @@
 # django
 
 ## django manage command
-    django-admin help - used to display usage information and a list of the commands provided by each application.
-    django-admin version - used to check your Django version.
+
+    ```python
+    
+        django-admin help - used to display usage information and a list of the commands provided by each application.
+    
+    ```
+
+    ```python
+        django-admin version - used to check your Django version.
+    ```
     django-admin check - used to inspect the entire Django project for common problems.
     django-admin compilemessages - Compiles .po files created by makemessages to .mo files for use with the help of built-in gettext support.
     django-admin createcachetable - Creates the cache tables for use in the database cache backend.
