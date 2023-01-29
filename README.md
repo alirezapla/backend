@@ -33,6 +33,7 @@ Some of the caching strategies in Django are listed below:
 file-based sessions -> set SESSION_ENGINE settings to "django.contrib.sessions.backends.file"
 
 ****
+# Serializing
 One of the main features needed by API systems is data "serialization" which is taking data from the code (Python) and converting it into something that can be sent through the network. For example, converting an object containing data from a database into a JSON object. Converting datetime objects into strings, etc.
 
 Another big feature needed by APIs is data validation, making sure that the data is valid, given certain parameters. For example, that some field is an int, and not some random string. This is especially useful for incoming data.
@@ -40,3 +41,13 @@ Another big feature needed by APIs is data validation, making sure that the data
 Without a data validation system, you would have to do all the checks by hand, in code.
 
 Serialization is the process of converting an object into a stream of bytes to store the object or transmit it to memory, a database, or a file. Its main purpose is to save the state of an object in order to be able to recreate it when needed. The reverse process is called deserialization.
+
+```python
+class Person(object):
+    def __init__(self, id, name, birth_date):
+        self.id = id
+        self.name = name
+        self.birth_date = birth_date
+```
+
+JSON only accepts native data types like integers, strings, booleans, and so on. It’s pretty clear that the Python json.dumps function on a Person object won’t work. Instead, we need a representation that only uses native data types before we can pass it to a JSON encoding function.
