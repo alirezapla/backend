@@ -30,7 +30,11 @@ Some of the caching strategies in Django are listed below:
 |Local-memory Caching |	This is used as the default cache strategy by Django if you haven’t set anything. It is per-process as well as thread-safe.|
 |Database Caching | 	Cache data will be stored in the database and works very well if you have a fast and well-indexed DB server.|
 
-
-
 file-based sessions -> set SESSION_ENGINE settings to "django.contrib.sessions.backends.file"
 
+****
+One of the main features needed by API systems is data "serialization" which is taking data from the code (Python) and converting it into something that can be sent through the network. For example, converting an object containing data from a database into a JSON object. Converting datetime objects into strings, etc.
+
+Another big feature needed by APIs is data validation, making sure that the data is valid, given certain parameters. For example, that some field is an int, and not some random string. This is especially useful for incoming data.
+
+Without a data validation system, you would have to do all the checks by hand, in code.
