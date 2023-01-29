@@ -38,3 +38,5 @@ One of the main features needed by API systems is data "serialization" which is 
 Another big feature needed by APIs is data validation, making sure that the data is valid, given certain parameters. For example, that some field is an int, and not some random string. This is especially useful for incoming data.
 
 Without a data validation system, you would have to do all the checks by hand, in code.
+
+Serialization is the process of converting an object into a stream of bytes to store the object or transmit it to memory, a database, or a file. Its main purpose is to save the state of an object in order to be able to recreate it when needed. The reverse process is called deserialization.
