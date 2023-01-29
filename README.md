@@ -51,3 +51,21 @@ class Person(object):
 ```
 
 JSON only accepts native data types like integers, strings, booleans, and so on. It’s pretty clear that the Python json.dumps function on a Person object won’t work. Instead, we need a representation that only uses native data types before we can pass it to a JSON encoding function.
+
+```python
+
+def to_json(self):
+    return {
+        'id': self.id,
+        'name': self.name,
+        'birth_date': self.birth_date.isoformat(),
+        'sidekick': self.sidekick.to_json() if self.sidekick else None,
+    }
+```
+Python datetime object is not a native datatype and Person object which can’t be converted directly to JSON.
+
+
+While this works, there are a few issues here. For one, we can’t define the field types. So if some code is consuming this JSON representation and we encounter a boolean value for id, the calling code would be confused. Ideally we would like to handle such cases already at serialization time. Additionally, some use cases might require that the returned value be different based on some context. As an example, consider a web application that allows chat rooms where two or more users can talk to each other. In such cases, the number of unread messages for the same chat room would be different based on which user is requesting the value.
+An important thing to keep in mind is that serialization is not limited to JSON. There are plenty of other data formats (XML, for instance) which could use some help. Either way, the basic concept remains the same.
+
+`serpy`
